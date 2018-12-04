@@ -1,0 +1,53 @@
+.toDoListHead button {
+   
+    background-color: black;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+body
+{
+    background-image: url(colerd.jpg);
+    height: 100%;
+    width: 100%;
+    background-size: cover;
+    
+}
+.toDoListHead 
+{
+    background-color: black;
+    color: #ccc;
+   border-radius: 30px;
+    opacity: 0.9;
+    position: absolute;
+   transform: translate(-50%,-50%);
+   width : 90%;
+   padding: 12px 20px;
+   top: 15%;
+   left: 50%;
+}
+.toDoListHead input[type=text], select {
+    width: 80%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+
+    
+}
+.toDoListHead h1{
+    background-color: transparent;
+    color: coral;
+    text-align: center;
+}
+.listItems
+{
+    position: relative;
+    top:20%;
+
+}
