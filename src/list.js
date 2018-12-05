@@ -39,6 +39,8 @@ class Todolist extends React.Component
 
     }
    
+    //<div id ={"d"+this.state.index} styles={{display :'none',}} >7aga</div> 
+    //onClick={this.show_hide}
     addItem=()=>{
         
             this.state.textInTexbox = document.getElementById("textbox").value;
@@ -46,21 +48,18 @@ class Todolist extends React.Component
 
             if(this.state.textInTexbox)
             this.setState((prevstate)=>({
-                items : prevstate.items.concat( 
-                    <div  id = {this.state.index}>
-                    <p id={"p"+this.state.index}>{this.state.textInTexbox}</p>
-                    <button onClick={this.show_hide}>arow</button>
-                    <button onClick={}>add</button>
-                    <div id ={"d"+this.state.index} styles={{display :'none',}} >7aga</div> 
-                   
-    
-                </div>
-                )
+                items : prevstate.items.concat(     
+               {
+                   name : this.state.textInTexbox,
+                   button : <button >arow</button>,
+                   detalis : [],
+                   indx : this.state.index,
+                })
             }));
             //console.log(document.getElementById('d1').style);
             this.setState((prevstate)=>({index : prevstate.index+1}));
             document.getElementById("textbox").value="";
-        
+        console.log(this.state.items);
        
 
     }
@@ -77,7 +76,19 @@ class Todolist extends React.Component
                 <button onClick={this.addItem}>add</button>
           </div>
           <div class ="">
-               {this.state.items}
+          {this.state.items.map((N)=>{
+                return <div> 
+                  
+                  <h6>{N.name}</h6>
+                  {N.button}
+                  <div>
+                    {N.details}
+                  </div>
+                </div>
+
+                
+              })
+            }
           </div>
         </div>
       );
