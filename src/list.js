@@ -16,15 +16,25 @@ class Todolist extends React.Component
             
             textInTexbox : "",
             show_hide : this.show_hide.bind(this),
+            adddetails : this.adddetails.bind(this),
             //index variable to s ids for some elements
-            index : 1,
+            index : 0,
             //if edit_bool is any aother value else 0 then i'm editing now - if = 0 then i'm adding
             show_bool : 0,
+            xx : 0,
 
         }
      
     }
-  
+    adddetails=(e)=>{
+        this.state.xx = e.target.id;
+        
+        this.setState((prevstate)=>({
+            
+            items : prevstate.items[0].details.push(<p>eshta8al ya 7abiby</p> )    
+          
+        }));        
+    }
     show_hide=(e)=>{
         
         
@@ -51,15 +61,15 @@ class Todolist extends React.Component
                 items : prevstate.items.concat(     
                {
                    name : this.state.textInTexbox,
-                   button : <button >arow</button>,
-                   detalis : [],
+                   button : <button onClick={this.adddetails} id={this.state.index}>arow</button>,
+                   detalis : [<p>3'oooor</p>],
                    indx : this.state.index,
                 })
             }));
             //console.log(document.getElementById('d1').style);
             this.setState((prevstate)=>({index : prevstate.index+1}));
             document.getElementById("textbox").value="";
-        console.log(this.state.items);
+        //console.log(this.state.items);
        
 
     }
@@ -81,6 +91,7 @@ class Todolist extends React.Component
                   
                   <h6>{N.name}</h6>
                   {N.button}
+                  
                   <div>
                     {N.details}
                   </div>
