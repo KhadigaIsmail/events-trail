@@ -21,12 +21,12 @@ class User extends React.Component {
   };
 
   show = e => {
-    e.target.nextSibling.style.dispaly = "block";
-    console.log(e.target.nextSibling.className);
+    //document.getElementById(e.target.id + "form").style.display = "block";
+    e.target.nextSibling.nextSibling.style.display = "block";
   };
 
   saveChanges = e => {
-    const newValue = e.target.prevSibling.value; //el input ely ktb fih
+    const newValue = e.target.previousSibling.value; //ely kataboh f-el input
     const clickedButtonId = e.target.id;
 
     // ktb 7aga
@@ -54,56 +54,55 @@ class User extends React.Component {
   render() {
     return (
       <React.Fragment>
-        <label>{this.state.userName}</label>
+        <label style={{ margin: 10 + "px" }}>{this.state.userName}</label>
         <button onClick={this.show}>Change Name</button>
         <br />
 
-        <form className="c" onSubmit={this.prevent} style={{ display: "none" }}>
-          <input placeholder="Name" />
+        <form onSubmit={this.prevent} style={{ display: "none" }}>
+          <input placeholder="Name" type="text" />
           <button id="userName" onClick={this.saveChanges}>
             Save Changes
           </button>
           <br />
         </form>
 
-        <label>{this.state.mobile}</label>
+        <label style={{ margin: 10 + "px" }}>{this.state.mobile}</label>
         <button onClick={this.show}>Change Mobile</button>
         <br />
 
         <form onSubmit={this.prevent} style={{ display: "none" }}>
-          <input placeholder="Mobile" />
+          <input placeholder="Mobile" type="text" />
           <button id="mobile" onClick={this.saveChanges}>
             Save Changes
           </button>
           <br />
         </form>
 
-        <label>{this.state.email}</label>
+        <label style={{ margin: 10 + "px" }}>{this.state.email}</label>
         <button onClick={this.show}>Change Email</button>
         <br />
 
         <form onSubmit={this.prevent} style={{ display: "none" }}>
-          <input placeholder="Email" />
+          <input placeholder="Email" type="email" />
           <button id="email" onClick={this.saveChanges}>
             Save Changes
           </button>
           <br />
         </form>
 
-        <label>{this.state.address}</label>
+        <label style={{ margin: 10 + "px" }}>{this.state.address}</label>
         <button onClick={this.show}>Change Address</button>
         <br />
 
         <form onSubmit={this.prevent} style={{ display: "none" }}>
-          <input placeholder="Address" />
+          <input placeholder="Address" type="text" />
           <button id="address" onClick={this.saveChanges}>
             Save Changes
           </button>
           <br />
         </form>
 
-        <label>{this.state.type}</label>
-        <button type="submit">Edit Profile</button>
+        <label style={{ margin: 10 + "px" }}>{this.state.type}</label>
       </React.Fragment>
     );
   }
